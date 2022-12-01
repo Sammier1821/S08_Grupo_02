@@ -11,7 +11,7 @@ public class Persona {
     apellidos = "NA";
   }
 
-  public Persona(String dni, String apellidos, String nombres) {
+  public Persona(String dni, String nombres, String apellidos) {
     this.dni = dni;
     this.nombres = nombres;
     this.apellidos = apellidos;
