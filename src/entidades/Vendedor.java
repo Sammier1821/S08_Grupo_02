@@ -36,7 +36,8 @@ public class Vendedor extends Empleado implements Comision {
   public String toString() {
     return super.toString() +
             "\nFecha de contrato: " + getFechaContrato() +
-            "\nTiempo de contrato (en meses): " + getTiempoContrato();    
+            "\nTiempo de contrato (en meses): " + getTiempoContrato() +
+            "\nPorcentaje de comision: " + getPorcentajeComision();    
   }
 
   @Override
