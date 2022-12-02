@@ -35,20 +35,12 @@ public class Gerente extends Empleado implements Comision {
     return sueldoMinimo;
   }
   
-  public float getSueldoNeto(Concesionario concesionario) {
-    if (concesionario.getMontoTotalVentas() >= 5000)
-      return getSueldoMinimo() * (1 + getPorcentajeComision());
-    else
-      return getSueldoMinimo();
-  }
-
   @Override
   public String toString() {
     return super.toString() +
             "\nProfesion: " + getProfesion() +
             "\nSueldo minimo: " + getSueldoMinimo() +
-            "\nPorcentaje de comision: " + getPorcentajeComision() +
-            "\nSueldo neto: " + getSueldoNeto(concesionario);
+            "\nPorcentaje de comision: " + getPorcentajeComision();
   }
   
   @Override
