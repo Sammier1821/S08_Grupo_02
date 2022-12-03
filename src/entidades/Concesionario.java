@@ -292,4 +292,7 @@ public class Concesionario {
     }
     return sueldoNetoVendedor;
   }
+  public int getNumeroVentas() {
+      return boletasVenta.size();
+  }
 }
