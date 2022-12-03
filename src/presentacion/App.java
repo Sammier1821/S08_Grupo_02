@@ -2,18 +2,29 @@ package presentacion;
 
 import entidades.*;
 import entidades.Concesionario.*;
+import java.util.*;
 
 public class App {
-  public static void menu() {
-    System.out.println("========== MENU DE FUNCIONES ==========");
-    System.out.println("1. Registrar a los empleados");
-    System.out.println("2.");
-    System.out.println("3.");
-    System.out.println("4.");
-    System.out.println("5. Listar los datos de las ventas totales por cada vendedor, así como el monto del porcentaje que les corresponde");
-    System.out.println("6.");
-    System.out.println("7.");
-  }
+    private static Scanner sc = new Scanner(System.in);
+    public static int menu() {
+        String opcionesMenu = """
+                            ========== MENU DE FUNCIONES ==========
+                            1. Registrar empleados
+                            2. Registrar automoviles
+                            3.
+                            4.
+                            5. Listar los datos de las ventas totales por cada vendedor, asi como el monto del porcentaje que les corresponde;
+                            6.
+                            7. Salir
+                            \tDigite una opcion [1 - 7]:""";
+        int opcion;
+        do{
+          System.out.print("\n\n\tMenu principal\n\n" + opcionesMenu);
+          opcion = sc.nextInt();
+        } while(opcion<1 || opcion>7);
+        sc.nextLine();
+        return opcion;
+    }
   
   public static void main(String[] args) {
     // Declarando e inicializando gerente
@@ -48,5 +59,50 @@ public class App {
     System.out.println(concesionario.getGerente());
     System.out.println(concesionario.getVendedor(0));
     System.out.println(concesionario.getSueldoNetoVendedor(vendedor));
+    
+    int opcion,anno;
+    float precioV;
+    String codigo,marca,modelo,nombreF;
+    boolean vendido;
+    do{
+      opcion = menu();
+      switch(opcion) {
+        case 1:
+          break;
+        case 2:
+          Automovil auto = concesionario.new Automovil();
+          System.out.print("\nDigite codigo: ");
+          codigo = sc.nextLine();
+          auto.setCodigo(codigo);
+
+          System.out.print("\nDigite la marca: ");
+          marca = sc.nextLine();
+          auto.setMarca(marca);
+
+          System.out.print("\nDigite el modelo: ");
+          modelo = sc.nextLine();
+          auto.setModelo(modelo);
+
+          System.out.print("\nDigite el anno de fabricacion: ");
+          anno = sc.nextInt();
+          auto.setAnnoFabricacion(anno);
+
+          System.out.print("\nDigite el nombre del Fabricante: ");
+          nombreF = sc.nextLine();
+          auto.setNombreFabricante(nombreF);
+
+          System.out.print("\nDigite el precio de venta: ");
+          precioV = sc.nextFloat();
+          auto.setPrecioVenta(precioV);
+
+          concesionario.setAutomovil(auto);
+          break;
+        case 3:
+
+          break;
+        case 4:
+          break;
+        }
+    } while(opcion >= 1 || opcion <=7);
   }
 }
