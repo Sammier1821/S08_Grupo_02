@@ -308,7 +308,4 @@ public class Concesionario {
   public int getNumeroAutomoviles() {
     return automoviles.size();
   }
-  
-  
-  
 }
