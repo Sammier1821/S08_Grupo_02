@@ -14,7 +14,7 @@ public class App {
                             3. Registrar clientes
                             4.
                             5. Listar los datos de las ventas totales por cada vendedor, así como el monto del porcentaje que les corresponde");
-                            6.
+                            6. Listar el total de ventas realizadas en un mes determinado
                             7. Salir
                             \tDigite una opcion [1 - 7]:""";
         int opcion;
@@ -59,7 +59,7 @@ public class App {
     System.out.println(concesionario.getGerente());
     System.out.println(concesionario.getVendedor(0));
     System.out.println(concesionario.getSueldoNetoVendedor(vendedor));
-    int opcion,anno;
+    int opcion,mes,anno;
     float precioV;
     String codigo,marca,modelo,nombreF,dnic,nombresc,apellidosc,direccionc,telefonoc;
     boolean vendido;
@@ -122,6 +122,41 @@ public class App {
                     concesionario.setCliente(client);
                     break;
                 case 4:
+                    break;
+                case 6:
+                    System.out.print("\nListado de Ventas de Determinado mes ");
+                    do{
+                       System.out.print("\n\tDigite el mes:");
+                       mes = sc.nextInt(); 
+                    }while(!(mes>0 && mes<=12));
+                    do{
+                        System.out.print("\n\tDigite el anio actual: ");
+                        anno = sc.nextInt();
+                    }while(!(anno>=1000));
+                    int n = 0;
+                    switch(mes){
+                        case 1 -> System.out.print("Lista de ventas realizadas el mes de Enero del presente anio:");
+                        case 2 -> System.out.print("Lista de ventas realizadas el mes de Febrero del presente anio:");
+                        case 3 -> System.out.print("Lista de ventas realizadas el mes de Marzo del presente anio:");
+                        case 4 -> System.out.print("Lista de ventas realizadas el mes de Abril del presente anio:");
+                        case 5 -> System.out.print("Lista de ventas realizadas el mes de Mayo del presente anio:");
+                        case 6 -> System.out.print("Lista de ventas realizadas el mes de Junio del presente anio:");
+                        case 7 -> System.out.print("Lista de ventas realizadas el mes de Julio del presente anio:");
+                        case 8 -> System.out.print("Lista de ventas realizadas el mes de Agosto del presente anio:");
+                        case 9 -> System.out.print("Lista de ventas realizadas el mes de Septiembre del presente anio:");
+                        case 10 -> System.out.print("Lista de ventas realizadas el mes de Octubre del presente anio:");
+                        case 11 -> System.out.print("Lista de ventas realizadas el mes de Noviembre del presente anio:");
+                        case 12 -> System.out.print("Lista de ventas realizadas el mes de Diciembre del presente anio:");
+                    }
+                    for(int i = 0; i < concesionario.getNumeroVentas(); i++){
+                        if(anno == concesionario.getBoletaVenta(i).getFechaVenta().getAnno() && 
+                                mes == concesionario.getBoletaVenta(i).getFechaVenta().getMes()){
+                            System.out.print(concesionario.getBoletaVenta(i).toString());
+                            n++;
+                        }
+                    }
+                    if(n == 0)
+                        System.out.print("No se han realizado ventas este mes.");
                     break;
                 }
     } while(opcion!=7);
