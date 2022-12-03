@@ -11,16 +11,16 @@ public class App {
                             ========== MENU DE FUNCIONES ==========
                             1. Registrar empleados
                             2. Registrar automoviles
-                            3.
+                            3. Registrar clientes
                             4.
-                            5. Listar los datos de las ventas totales por cada vendedor, asi como el monto del porcentaje que les corresponde;
+                            5. Listar los datos de las ventas totales por cada vendedor, así como el monto del porcentaje que les corresponde");
                             6.
                             7. Salir
                             \tDigite una opcion [1 - 7]:""";
         int opcion;
         do{
-          System.out.print("\n\n\tMenu principal\n\n" + opcionesMenu);
-          opcion = sc.nextInt();
+            System.out.print("\n\n\tMenu principal\n\n" + opcionesMenu);
+            opcion = sc.nextInt();
         } while(opcion<1 || opcion>7);
         sc.nextLine();
         return opcion;
@@ -59,50 +59,72 @@ public class App {
     System.out.println(concesionario.getGerente());
     System.out.println(concesionario.getVendedor(0));
     System.out.println(concesionario.getSueldoNetoVendedor(vendedor));
-    
     int opcion,anno;
     float precioV;
-    String codigo,marca,modelo,nombreF;
+    String codigo,marca,modelo,nombreF,dnic,nombresc,apellidosc,direccionc,telefonoc;
     boolean vendido;
     do{
-      opcion = menu();
-      switch(opcion) {
-        case 1:
-          break;
-        case 2:
-          Automovil auto = concesionario.new Automovil();
-          System.out.print("\nDigite codigo: ");
-          codigo = sc.nextLine();
-          auto.setCodigo(codigo);
-
-          System.out.print("\nDigite la marca: ");
-          marca = sc.nextLine();
-          auto.setMarca(marca);
-
-          System.out.print("\nDigite el modelo: ");
-          modelo = sc.nextLine();
-          auto.setModelo(modelo);
-
-          System.out.print("\nDigite el anno de fabricacion: ");
-          anno = sc.nextInt();
-          auto.setAnnoFabricacion(anno);
-
-          System.out.print("\nDigite el nombre del Fabricante: ");
-          nombreF = sc.nextLine();
-          auto.setNombreFabricante(nombreF);
-
-          System.out.print("\nDigite el precio de venta: ");
-          precioV = sc.nextFloat();
-          auto.setPrecioVenta(precioV);
-
-          concesionario.setAutomovil(auto);
-          break;
-        case 3:
-
-          break;
-        case 4:
-          break;
-        }
-    } while(opcion >= 1 || opcion <=7);
+       opcion = menu();
+       
+       switch(opcion) {
+                case 1:
+                    break;
+                case 2:
+                    Automovil auto = concesionario.new Automovil();
+                    System.out.print("\nDigite codigo: ");
+                    codigo = sc.nextLine();
+                    auto.setCodigo(codigo);
+                    
+                    System.out.print("\nDigite la marca: ");
+                    marca = sc.nextLine();
+                    auto.setMarca(marca);
+                    
+                    System.out.print("\nDigite el modelo: ");
+                    modelo = sc.nextLine();
+                    auto.setModelo(modelo);
+                    
+                    System.out.print("\nDigite el anno de fabricacion: ");
+                    anno = sc.nextInt();
+                    auto.setAnnoFabricacion(anno);
+                    
+                    System.out.print("\nDigite el nombre del Fabricante: ");
+                    nombreF = sc.nextLine();
+                    auto.setNombreFabricante(nombreF);
+                    
+                    System.out.print("\nDigite el precio de venta: ");
+                    precioV = sc.nextFloat();
+                    auto.setPrecioVenta(precioV);
+                    
+                    concesionario.setAutomovil(auto);
+                    break;
+                case 3:
+                    Cliente client = new Cliente();
+                    System.out.print("\nDigite DNI: ");
+                    dnic = sc.nextLine();
+                    client.setDni(dnic);
+                    
+                    System.out.print("\nDigite nombres: ");
+                    nombresc = sc.nextLine();
+                    client.setNombres(nombresc);
+                    
+                    System.out.print("\nDigite apellidos: ");
+                    apellidosc = sc.nextLine();
+                    client.setApellidos(apellidosc);
+                    
+                    System.out.print("\nDigite direccion: ");
+                    direccionc = sc.nextLine();
+                    client.setDireccion(direccionc);
+                    
+                    System.out.print("\nDigite numero telefonico: ");
+                    telefonoc = sc.nextLine();
+                    client.setTelefono(telefonoc);
+                    
+                    concesionario.setCliente(client);
+                    break;
+                case 4:
+                    break;
+                }
+    } while(opcion!=7);
   }
 }
+
