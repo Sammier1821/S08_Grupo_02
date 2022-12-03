@@ -292,7 +292,23 @@ public class Concesionario {
     }
     return sueldoNetoVendedor;
   }
+  
   public int getNumeroVentas() {
-      return boletasVenta.size();
+    return boletasVenta.size();
   }
+  
+  public int getNumeroVendedores() {
+    return vendedores.size();
+  }
+  
+  public int getNumeroClientes() {
+    return clientes.size();
+  }
+  
+  public int getNumeroAutomoviles() {
+    return automoviles.size();
+  }
+  
+  
+  
 }

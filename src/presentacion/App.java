@@ -15,7 +15,7 @@ public class App {
                           2. Registrar automoviles
                           3. Registrar clientes
                           4.
-                          5. Listar los datos de las ventas totales por cada vendedor, así como el monto del porcentaje que les corresponde
+                          5. Listar los datos de las ventas totales (por cada vendedor)
                           6. Listar el total de ventas realizadas en un mes determinado
                           7. 
                           8. Salir
@@ -24,7 +24,7 @@ public class App {
     do{
       System.out.print("\n\n\tMenu principal\n\n" + opcionesMenu);
       opcion = sc.nextInt();
-    } while(opcion < 1 || opcion > 7);
+    } while(opcion < 1 || opcion > 8);
     sc.nextLine();
     return opcion;
   }
@@ -33,7 +33,7 @@ public class App {
     
     Gerente gerenteInicial = new Gerente("aaa", "Pedro", "Quiroz", new Fecha(2005,1,18),"IngSistemas", 5000);
     Concesionario concesionario = new Concesionario("CompañiaInicial", gerenteInicial);
-        
+    
     int opcion,mes,anno;
     do{
       opcion = menu();
@@ -88,7 +88,22 @@ public class App {
         case 4:
           break;
         case 5:
-          
+          for (int i = 0; i < concesionario.getNumeroVendedores(); i++) {
+            System.out.println("\nVENDEDOR " + (i+1) + ":");
+            System.out.println("DNI: " + concesionario.getVendedor(i).getDni() +
+                    " Nombres: " + concesionario.getVendedor(i).getNombres());
+            System.out.println("VENTAS REALIZADAS:");
+            int n = 0;
+            for (int j = 0; j < concesionario.getNumeroVentas(); j++) {
+              if (concesionario.getBoletaVenta(j).getDniVendedor().equals(concesionario.getVendedor(i).getDni())) {
+                System.out.println(concesionario.getBoletaVenta(j));
+                n++;
+              }
+            }
+            if (n == 0) {
+              System.out.println("No se han realizado ventas con este vendedor.");
+            }
+          }
           break;
         case 6:
           System.out.print("\nListado de Ventas de Determinado mes ");
